@@ -6,10 +6,10 @@
  	</prerequisites>
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.tamal</groupId>
-	<artifactId>tamal-parent</artifactId>
+	<groupId>com.inqwise.opinion</groupId>
+	<artifactId>opinion-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>2</version>
+	<version>1</version>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -134,12 +134,12 @@
 						</execution>
 					</executions>
 					<dependencies>
-	          <dependency>
-	            <groupId>com.github.edwgiz</groupId>
-	            <artifactId>maven-shade-plugin.log4j2-cachefile-transformer</artifactId>
-	            <version>2.15</version>
-	          </dependency>
-          </dependencies>
+						<dependency>
+							<groupId>com.github.edwgiz</groupId>
+							<artifactId>maven-shade-plugin.log4j2-cachefile-transformer</artifactId>
+							<version>2.15</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 			</plugins>
 		</pluginManagement>
