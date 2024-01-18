@@ -39,7 +39,7 @@
      	</rule>
      	<rule comparisonMethod="" groupId="org.infinispan">
     		<ignoreVersions>
-				<ignoreVersion type="regex">(?i).*-Dev([0-9]+)?</ignoreVersion>
+				<ignoreVersion type="regex">(?i).*\.Dev([0-9]+)?</ignoreVersion>
 			</ignoreVersions>
      	</rule>
     </rules>
