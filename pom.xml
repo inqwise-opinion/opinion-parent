@@ -9,8 +9,60 @@
 	<groupId>com.inqwise.opinion</groupId>
 	<artifactId>opinion-parent</artifactId>
 	<packaging>pom</packaging>
+	<description>Opinion - an advanced questionnaire platform, survey design, data analysis, market research, education, feedback collection</description>
 	<version>1</version>
 	
+	<organization>
+		<name>inqwise</name>
+	</organization>
+	
+	<url>https://github.com/inqwise/opinion</url>
+	
+	<developers>
+		<developer>
+			<id>alex-inqwise</id>
+            <name>Alex Misyuk</name>
+            <email>alex@inqwise.com</email>
+            <organization>inqwise</organization>
+            <organizationUrl>https://www.inqwise.com</organizationUrl>
+		</developer>
+	</developers>
+	
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:git@github.com:inqwise/opinion-parent.git</connection>
+		<developerConnection>scm:git:git@github.com:inqwise/opinion-parent.git</developerConnection>
+		<url>git@github.com:inqwise/opinion-parent.git</url>
+	</scm>
+	
+	<distributionManagement>
+    	<snapshotRepository>
+        	<id>opinion-sonatype-snapshots</id>
+        	<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    	</snapshotRepository>
+	</distributionManagement>
+	
+	<repositories>
+		<repository>
+			<id>opinion-sonatype-snapshots</id>
+			<name>Opinion Snapshots Repository</name>
+			<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.version>3.6.3</maven.version>
@@ -18,7 +70,12 @@
 		<maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
 		<junit5.version>5.10.1</junit5.version>
 		<maven-flatten-plugin.version>1.5.0</maven-flatten-plugin.version>
+		<maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
+		<maven.javadoc.plugin.version>3.2.0</maven.javadoc.plugin.version>
+
+		<project.tags>questionnaire, survey, data-analysis, market-research, education, feedback</project.tags>
 	</properties>
+
 
 	<build>
 		<plugins>
@@ -48,7 +105,7 @@
 									<version>${maven.version}</version>
 								</requireMavenVersion>
 								<requireJavaVersion>
-				  					<version>${java.version}</version>
+										<version>${java.version}</version>
 								</requireJavaVersion>
 							</rules>
 						</configuration>
@@ -141,7 +198,84 @@
 						</dependency>
 					</dependencies>
 				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>${maven.gpg.plugin.version}</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
+	
+	<profiles>
+		<profile>
+			<id>sonatype-oss-release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.sonatype.central</groupId>
+						<artifactId>central-publishing-maven-plugin</artifactId>
+						<version>0.1.6</version>
+						<extensions>true</extensions>
+						<configuration>
+							<publishingServerId>opinion-sonatype</publishingServerId>
+							<tokenEnabled>true</tokenEnabled>
+						</configuration>
+					</plugin>
+					<!-- Set plugin version due to wrong plugin version when activating this profile -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>${maven.javadoc.plugin.version}</version>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+								<configuration>
+									<gpgArguments>
+    									<arg>--pinentry-mode</arg>
+    									<arg>loopback</arg>
+  									</gpgArguments>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-enforcer-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>enforce-no-vertx-snapshots</id>
+								<goals>
+									<goal>enforce</goal>
+								</goals>
+								<configuration>
+									<rules>
+										<requireJavaVersion>
+											<message>Opinion must be released with Java 21!</message>
+											<version>[21,)</version>
+										</requireJavaVersion>
+										<requireReleaseDeps>
+											<message>No Opinion Snapshots Allowed during a release!</message>
+											<includes>
+												<include>com.inqwise.opinion:*</include>
+											</includes>
+										</requireReleaseDeps>
+									</rules>
+									<fail>true</fail>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
