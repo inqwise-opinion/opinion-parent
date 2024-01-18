@@ -42,15 +42,15 @@
 		<url>git@github.com:inqwise/opinion-parent.git</url>
 	</scm>
 	
-	<distributionManagement>
+	<!--distributionManagement>
     	<snapshotRepository>
         	<id>opinion-sonatype-snapshots</id>
-        	<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        	<url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
     	</snapshotRepository>
-	</distributionManagement>
+	</distributionManagement-->
 	
 	<repositories>
-		<repository>
+		<!--repository>
 			<id>opinion-sonatype-snapshots</id>
 			<name>Opinion Snapshots Repository</name>
 			<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
@@ -60,7 +60,7 @@
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
-		</repository>
+		</repository-->
 	</repositories>
 
 	<properties>
