@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.inqwise.opinion</groupId>
 	<artifactId>opinion-parent</artifactId>
 	<packaging>pom</packaging>
-	<description
-    >Opinion - an advanced questionnaire platform, survey design, data analysis, market research, education, feedback collection</description>
-	<version>2-SNAPSHOT</version>
+	<description>Opinion - an advanced questionnaire platform, survey design, data analysis, market research, education, feedback collection</description>
+	<version>3-SNAPSHOT</version>
 
 	<organization>
 		<name>inqwise</name>
@@ -39,8 +34,7 @@
 
 	<scm>
 		<connection>scm:git:https://github.com/inqwise/opinion-parent.git</connection>
-		<developerConnection
-        >scm:git:https://github.com/inqwise/opinion-parent.git</developerConnection>
+		<developerConnection>scm:git:https://github.com/inqwise/opinion-parent.git</developerConnection>
 		<url>https://github.com/inqwise/opinion-parent</url>
 		<tag>HEAD</tag>
 	</scm>
@@ -95,8 +89,7 @@
 									<excludes>
 										<exclude>org.apache.maven.plugins:maven-verifier-plugin</exclude>
 									</excludes>
-									<message
-                                    >Please consider using the maven-invoker-plugin (http://maven.apache.org/plugins/maven-invoker-plugin/)!</message>
+									<message>Please consider using the maven-invoker-plugin (http://maven.apache.org/plugins/maven-invoker-plugin/)!</message>
 								</bannedPlugins>
 								<requireMavenVersion>
 									<version>${maven.version}</version>
@@ -215,8 +208,7 @@
 						<forceJavacCompilerUse>true</forceJavacCompilerUse>
 						<release>${java.version}</release>
 						<generatedSourcesDirectory>src/main/generated</generatedSourcesDirectory>
-						<generatedTestSourcesDirectory
-                        >src/test/generated</generatedTestSourcesDirectory>
+						<generatedTestSourcesDirectory>src/test/generated</generatedTestSourcesDirectory>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -230,8 +222,7 @@
 								<goal>shade</goal>
 							</goals>
 							<configuration>
-								<outputFile
-                                >${project.build.directory}/${project.artifactId}-fat.jar</outputFile>
+								<outputFile>${project.build.directory}/${project.artifactId}-fat.jar</outputFile>
 							</configuration>
 						</execution>
 					</executions>
@@ -333,8 +324,7 @@
 					    <artifactId>versions-maven-plugin</artifactId>
 					    <version>2.19.1</version>
 					    <configuration>
-					        <rulesUri
-                            >https://raw.githubusercontent.com/inqwise/opinion-parent/main/maven-version-rules.xml</rulesUri>
+					        <rulesUri>https://raw.githubusercontent.com/inqwise/opinion-parent/main/maven-version-rules.xml</rulesUri>
 					    </configuration>
 					    <executions>
 					        <execution>
