@@ -86,8 +86,6 @@ jobs:
               <version>${{ github.event.inputs.version }}</version>
             </parent>
             ```
-
-            *Next development version: $(( ${{ github.event.inputs.version }} + 1 ))-SNAPSHOT*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
