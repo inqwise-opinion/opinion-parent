@@ -57,11 +57,12 @@ jobs:
           set -euo pipefail
           RELEASE="${{ github.event.inputs.version }}"
           NEXT=$((RELEASE + 1))
+          git clean -fdx
           mvn -B -ntp release:clean release:prepare release:perform \
             -DreleaseVersion="$RELEASE" \
             -DdevelopmentVersion="${NEXT}-SNAPSHOT" \
             -Dtag="v$RELEASE" \
-            -Darguments="-DskipTests"
+            -Darguments="-Psonatype-oss-release -DskipTests"
 
       - name: Push release commits
         if: github.event_name == 'workflow_dispatch'
