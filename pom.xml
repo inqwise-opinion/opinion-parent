@@ -258,11 +258,11 @@
 							<publishingServerId>sonatype-oss-release</publishingServerId>
 							<autoPublish>true</autoPublish>
 							<checksums>required</checksums>
-							<project>
-								<name>Opinion Parent</name>
-								<description>Opinion - an advanced questionnaire and survey platform parent POM</description>
-								<url>${project.url}</url>
-							</project>
+						<project>
+							<name>${project.name}</name>
+							<description>${project.description}</description>
+							<url>${project.url}</url>
+						</project>
 						</configuration>
 					</plugin>
 					<!-- Set plugin version due to wrong plugin version when activating this profile -->
