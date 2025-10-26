@@ -34,3 +34,4 @@ Use a current Java LTS release for development and the latest LTS (or newer) whe
 - Agent-specific guidance lives in `AGENTS.md`
 - Release automation details are in the repository CI workflows
 - Security contacts and reporting instructions are documented in `SECURITY.md`
+- Dependency and plugin stability rules are maintained in `maven-version-rules.xml`
