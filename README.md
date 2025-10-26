@@ -1,6 +1,6 @@
 # Opinion Parent POM
 
-[![CI](https://github.com/inqwise/opinion-parent/actions/workflows/ci.yml/badge.svg)](https://github.com/inqwise/opinion-parent/actions/workflows/ci.yml)
+[![CI](https://github.com/inqwise-opinion/opinion-parent/actions/workflows/ci.yml/badge.svg)](https://github.com/inqwise-opinion/opinion-parent/actions/workflows/ci.yml)
 [![Maven Central](https://img.shields.io/maven-central/v/com.inqwise.opinion/opinion-parent.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/com.inqwise.opinion/opinion-parent)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
