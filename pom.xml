@@ -48,16 +48,29 @@
 		</repository>
 		<snapshotRepository>
 			<id>sonatype-oss-snapshots</id>
-			<name>Sonatype OSSRH Snapshots</name>
-			<url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+			<name>Central Repository Snapshots</name>
+			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
-
+	<repositories>
+ 		<repository>
+			<name>Central Portal Snapshots</name>
+			<id>central-portal-snapshots</id>
+			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.version>3.6.3</maven.version>
-		<java.version>17</java.version>
+		<java.version>21</java.version>
 		<maven-compiler-plugin.version>3.14.1</maven-compiler-plugin.version>
 		<junit5.version>6.0.0</junit5.version>
 		<maven-flatten-plugin.version>1.7.3</maven-flatten-plugin.version>
